@@ -56,6 +56,11 @@ img {
   //height: auto;
 }
 
+li {
+  list-style: none;
+  @include typeface-2(p3, desktop);
+}
+
 @import "sass/menu";
 @import "sass/icons";
 @import "sass/buttons";

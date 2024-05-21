@@ -24,7 +24,7 @@ const Contador = () => {
 
           <div className="mt-3">
             <h5>Contador: {contador}</h5>
-            <div className="w-25 mt-3 p-0">
+            <div className="mt-3 p-0">
               <button type="button" className="btn mr-3" onClick={menosUm}>
                 -
               </button>

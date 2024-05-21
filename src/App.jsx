@@ -1,6 +1,8 @@
 import Contador from "./pages/Contador";
 import EsconderTexto from "./pages/EsconderTexto";
 import ListaDeTarefas from "./pages/ListaDeTarefas";
+import MudarCor from "./pages/MudarCor";
+import ValidarForm from "./pages/ValidarForm";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Contador />
       <EsconderTexto />
       <ListaDeTarefas />
+      <MudarCor />
+      <ValidarForm />
     </>
   );
 }
