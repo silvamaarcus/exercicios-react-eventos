@@ -374,4 +374,8 @@ $gutter: 32px;
 .new-color {
   border: 1px solid $black-light;
   padding: 8px;
+
+  @include responsive(s) {
+    margin-top: 24px;
+  }
 }

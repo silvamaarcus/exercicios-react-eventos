@@ -533,6 +533,11 @@
   border: 1px solid #151b26;
   padding: 8px;
 }
+@media screen and (max-width: 960px) {
+  .new-color {
+    margin-top: 24px;
+  }
+}
 
 .s-0 {
   margin: 0;

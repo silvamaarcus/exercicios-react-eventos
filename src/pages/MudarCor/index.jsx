@@ -21,7 +21,7 @@ const MudarCor = () => {
             clique, a cor deve mudar para a próxima da lista.
           </p>
 
-          <div className="mt-3 flex-start-row">
+          <div className="mt-3 flex-start-row flex-wrap">
             <button className="btn mr-3" onClick={mudarCor}>
               Alterar cor
             </button>
