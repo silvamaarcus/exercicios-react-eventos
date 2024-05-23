@@ -539,6 +539,12 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .exe-7 {
+    width: 100% !important;
+  }
+}
+
 .s-0 {
   margin: 0;
   padding: 0;

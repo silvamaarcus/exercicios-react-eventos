@@ -379,3 +379,9 @@ $gutter: 32px;
     margin-top: 24px;
   }
 }
+
+.exe-7 {
+  @include responsive(s) {
+    width: 100% !important;
+  }
+}
