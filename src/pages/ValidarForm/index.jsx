@@ -13,15 +13,14 @@ const ValidarForm = () => {
   };
 
   const validarForm = () => {
-    const emailValido = "@";
-    if (
-      nomeInput.length &
-      emailInput.length &
-      emailInput.includes(emailValido)
-    ) {
-      setNomeInput(alert("Sucesso!"));
-      setNomeInput("");
-      setEmailInput("");
+    if (nomeInput.length & emailInput.length) {
+      if (emailInput.includes("@")) {
+        setNomeInput(alert("Sucesso!"));
+        setNomeInput("");
+        setEmailInput("");
+      } else {
+        alert("Email inválido!!");
+      }
     } else {
       alert("Preencha os campos corretamente!");
     }

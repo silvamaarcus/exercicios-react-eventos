@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const MudarCor = () => {
-  const [cores] = useState(["green", "blue", "red", "orange", "navyblue"]);
+  const [cores] = useState(["green", "blue", "red", "orange", "pink"]);
   const [corAtualIndex, setCorAtualIndex] = useState("");
 
   const mudarCor = () => {
