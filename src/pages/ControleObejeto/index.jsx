@@ -1,24 +1,27 @@
 import { useState } from "react";
 
 const ControleObjeto = () => {
-  const [marca, setMarca] = useState("");
-  const [modelo, setModelo] = useState("");
-  const [ano, setAno] = useState("");
-  const [cor, setCor] = useState("");
+  const [veiculo, setVeiculo] = useState({
+    marca: "",
+    modelo: "",
+    ano: "",
+    cor: "",
+  });
+  const [veiculos, setVeiculos] = useState([]);
 
-  const [marcaInserida, setMarcaInserida] = useState([]);
-
-  const salvarDados = (e) => {
-    setMarca(e.target.value);
-    // setModelo(e.target.value);
-    // setAno(e.target.value);
-    // setCor(e.target.value);
+  // Atualizar o estado veiculo sempre que um campo de input é alterado.
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setVeiculo({ ...veiculo, [name]: value });
   };
 
+  // Verificar se todos os campos estão preenchidos e, se estiverem, adiciona o objeto 'veiculo' ao array 'veiculos', após isso, limpar os inputs.
   const printDados = () => {
-    if (marca.trim()) {
-      setMarcaInserida([...marcaInserida, marca]);
-      setMarca(""); // Limpar o input, após a tarefa ser adicionada.
+    const { marca, modelo, ano, cor } = veiculo;
+    if (marca.trim() && modelo.trim() && ano.trim() && cor.trim()) {
+      setVeiculos([...veiculos, veiculo]);
+      // Limpar os inputs após a tarefa ser adicionada.
+      setVeiculo({ marca: "", modelo: "", ano: "", cor: "" });
     }
   };
 
@@ -41,8 +44,9 @@ const ControleObjeto = () => {
                 <input
                   type="text"
                   className="ml-3"
-                  onChange={salvarDados}
-                  value={marca}
+                  name="marca"
+                  onChange={handleChange}
+                  value={veiculo.marca}
                 />
               </div>
               <div className="flex-start-row mt-3">
@@ -50,8 +54,9 @@ const ControleObjeto = () => {
                 <input
                   type="text"
                   className="ml-3"
-                  onChange={salvarDados}
-                  value={modelo}
+                  name="modelo"
+                  onChange={handleChange}
+                  value={veiculo.modelo}
                 />
               </div>
               <div className="flex-start-row mt-3">
@@ -59,8 +64,9 @@ const ControleObjeto = () => {
                 <input
                   type="text"
                   className="ml-3"
-                  onChange={salvarDados}
-                  value={ano}
+                  name="ano"
+                  onChange={handleChange}
+                  value={veiculo.ano}
                 />
               </div>
               <div className="flex-start-row mt-3">
@@ -68,8 +74,9 @@ const ControleObjeto = () => {
                 <input
                   type="text"
                   className="ml-3"
-                  onChange={salvarDados}
-                  value={cor}
+                  name="cor"
+                  onChange={handleChange}
+                  value={veiculo.cor}
                 />
               </div>
 
@@ -80,27 +87,26 @@ const ControleObjeto = () => {
 
             <div className="p-2">
               <h6>Informações do veículo:</h6>
-              <div className="flex-start-row mt-3">
-                <h6 className="h7">Marca:</h6>
-                {marcaInserida.map((item, index) => (
-                  <h6 className="color-green ml-1" key={index}>
-                    {item}
-                  </h6>
-                ))}
-              </div>
-
-              <div className="flex-start-row mt-3">
-                <h6 className="h7">Modelo</h6>
-                <input type="text" className="ml-3" />
-              </div>
-              <div className="flex-start-row mt-3">
-                <h6 className="h7">Ano</h6>
-                <input type="text" className="ml-3" />
-              </div>
-              <div className="flex-start-row mt-3">
-                <h6 className="h7">Cor</h6>
-                <input type="text" className="ml-3" />
-              </div>
+              {veiculos.map((item, index) => (
+                <div key={index} className="mt-3">
+                  <div className="flex-start-row">
+                    <h6 className="h7">Marca:</h6>
+                    <h6 className="color-green ml-1">{item.marca}</h6>
+                  </div>
+                  <div className="flex-start-row">
+                    <h6 className="h7">Modelo:</h6>
+                    <h6 className="color-green ml-1">{item.modelo}</h6>
+                  </div>
+                  <div className="flex-start-row">
+                    <h6 className="h7">Ano:</h6>
+                    <h6 className="color-green ml-1">{item.ano}</h6>
+                  </div>
+                  <div className="flex-start-row">
+                    <h6 className="h7">Cor:</h6>
+                    <h6 className="color-green ml-1">{item.cor}</h6>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -108,4 +114,5 @@ const ControleObjeto = () => {
     </>
   );
 };
+
 export default ControleObjeto;
